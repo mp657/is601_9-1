@@ -43,6 +43,10 @@ switch ($action) {
            $message = 'The phone number must contain at least seven digits.';
            break;
         }
+	$phone = str_replace('-', '', $phone);
+	$phone = str_replace('(', '', $phone);
+	$phone = str_replace(')', '', $phone);
+	$phone = str_replace(' ', '', $phone);
 
         $message ="Hello $first_name,\n\n" .
 	          "Thank you for entering this data:\n\n" .
