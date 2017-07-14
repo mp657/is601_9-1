@@ -18,7 +18,13 @@ switch ($action) {
 	    $message = 'Please enter your name.';
 	    break;
 	}
-        $message ="Hello $name,\n\n" .
+	$i = strpos($name, ' ');
+	if ($i === false) {
+	   $first_name = $name;
+	   } else {
+	   $first_name = substr($name, 0, $i);
+	}
+        $message ="Hello $first_name,\n\n" .
 	          "Thank you for entering this data:\n\n" .
 		  "Name: $name\n" .
 		  "Email: $email\n" .
