@@ -29,6 +29,17 @@ switch ($action) {
 	   $first_name = substr($name, 0, $i);
 	}
 
+        if (empty($email)) {
+	   $message = 'You must enter an email address.';
+	   break;
+	   } else if(strpos($email, '@') === false) {
+	   $message = '@ sign mossing..!';
+	   break;
+	   } else if(strpos($email, '.') === false) {
+	   $message = 'Dot character missing.';
+	   break;
+	}
+
         $message ="Hello $first_name,\n\n" .
 	          "Thank you for entering this data:\n\n" .
 		  "Name: $name\n" .
