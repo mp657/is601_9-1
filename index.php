@@ -39,6 +39,10 @@ switch ($action) {
 	   $message = 'Dot character missing.';
 	   break;
 	}
+	if (strlen($phone) < 7) {
+           $message = 'The phone number must contain at least seven digits.';
+           break;
+        }
 
         $message ="Hello $first_name,\n\n" .
 	          "Thank you for entering this data:\n\n" .
