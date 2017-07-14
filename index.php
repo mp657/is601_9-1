@@ -33,7 +33,7 @@ switch ($action) {
 	   $message = 'You must enter an email address.';
 	   break;
 	   } else if(strpos($email, '@') === false) {
-	   $message = '@ sign mossing..!';
+	   $message = '@ sign missing..!';
 	   break;
 	   } else if(strpos($email, '.') === false) {
 	   $message = 'Dot character missing.';
@@ -47,6 +47,17 @@ switch ($action) {
 	$phone = str_replace('(', '', $phone);
 	$phone = str_replace(')', '', $phone);
 	$phone = str_replace(' ', '', $phone);
+
+        if (strlen($phone) == 7) {
+	   $part1 = substr($phone, 0, 3);
+	   $part2 = substr($phone, 3);
+	   $phone = $part1 . '-' . $part2;
+	} else {
+	   $part1 = substr($phone, 0, 3);
+	   $part2 = substr($phone, 3, 3);
+	   $part3 = substr($phone, 6);
+	   $phone = $part1 . '-' . $part2 . '-' . $part3;
+	}
 
         $message ="Hello $first_name,\n\n" .
 	          "Thank you for entering this data:\n\n" .
